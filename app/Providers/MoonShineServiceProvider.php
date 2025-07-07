@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Providers;
 
 use App\MoonShine\Resources\AuthorResource;
+use App\MoonShine\Resources\BookResource;
 use MoonShine\Providers\MoonShineApplicationServiceProvider;
 use MoonShine\MoonShine;
 use MoonShine\Menu\MenuGroup;
@@ -49,17 +50,24 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
                     static fn() => __('moonshine::ui.resource.role_title'),
                     new MoonShineUserRoleResource()
                 ),
-                MenuItem::make(
-                    'Автор',
-                    new AuthorResource()
-                ),
-
             ]),
+
+            MenuItem::make(
+                'Authors',
+                new AuthorResource()
+            ),
+
+            MenuItem::make(
+                'Books',
+                new BookResource()
+            ),
 
             MenuItem::make('Documentation', 'https://moonshine-laravel.com/docs')
                 ->badge(fn() => 'Check')
                 ->blank(),
         ];
+
+
     }
 
     /**

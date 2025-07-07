@@ -49,7 +49,7 @@ class AuthorResource extends ModelResource
             ID::make(),
             Text::make('Name'),
             Text::make('Surname'),
-            Text::make('Biography'),
+            Text::make('Biography')->nullable(),
         ];
     }
 
@@ -57,9 +57,18 @@ class AuthorResource extends ModelResource
     {
         return [
             ID::make(),
+            Text::make('Name'),
+            Text::make('Surname'),
+            Text::make('Biography'),
         ];
     }
-
+    public function search(): array
+    {
+        return [
+            'surname',
+            'biography'
+        ];
+    }
     /**
      * @param Author $item
      *
