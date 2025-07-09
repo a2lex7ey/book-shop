@@ -38,8 +38,8 @@ class BookResource extends ModelResource
             ID::make()->sortable(),
             Text::make('title')->sortable(),
             Text::make('Publication Year', 'publication_year' )->sortable(),
-            BelongsTo::make('Author', 'author')->sortable(),
-            BelongsTo::make('Genre', 'genre')->sortable(),
+            BelongsTo::make('Author',formatted: fn($author)=> "$author->name $author->surname")->sortable(),
+            BelongsTo::make('Genre', formatted:'name'),
             Number::make('Price')->sortable(),
             Number::make('Count')->sortable(),
         ];
@@ -56,8 +56,8 @@ class BookResource extends ModelResource
                 ->nullable(),
             CKEditor::make('Description')->nullable(),
             Text::make('Publication Year', 'publication_year' ),
-            BelongsTo::make('Author', 'author'),
-            BelongsTo::make('Genre', 'genre'),
+            BelongsTo::make('Author', formatted: fn($author)=> "$author->name $author->surname"),
+            BelongsTo::make('Genre', formatted:'name'),
             Number::make('Price'),
             Number::make('Count'),
         ];
@@ -71,8 +71,8 @@ class BookResource extends ModelResource
             Image::make('Cover'),
             CKEditor::make('Description'),
             Text::make('Publication Year', 'publication_year' ),
-            BelongsTo::make('Author', 'author'),
-            BelongsTo::make('Genre', 'genre'),
+            BelongsTo::make('Author', formatted: fn($author)=> "$author->name $author->surname"),
+            BelongsTo::make('Genre', formatted: 'name'),
             Number::make('Price'),
             Number::make('Count'),
         ];

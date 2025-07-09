@@ -6,6 +6,9 @@ namespace App\Providers;
 
 use App\MoonShine\Resources\AuthorResource;
 use App\MoonShine\Resources\BookResource;
+use App\MoonShine\Resources\GenreResource;
+use App\MoonShine\Resources\OrderResource;
+use App\MoonShine\Resources\UserResource;
 use MoonShine\Providers\MoonShineApplicationServiceProvider;
 use MoonShine\MoonShine;
 use MoonShine\Menu\MenuGroup;
@@ -60,6 +63,21 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
             MenuItem::make(
                 'Books',
                 new BookResource()
+            ),
+
+            MenuItem::make(
+                'Orders',
+                new OrderResource()
+            ),
+
+            MenuItem::make(
+                'Users',
+                new UserResource()
+            ),
+
+            MenuItem::make(
+                'Genres',
+                new GenreResource()
             ),
 
             MenuItem::make('Documentation', 'https://moonshine-laravel.com/docs')
