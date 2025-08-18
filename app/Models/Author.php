@@ -13,7 +13,6 @@ use Illuminate\Support\Facades\DB;
 class Author extends Model
 {
     use HasFactory;
-
     protected $fillable = [
         'name',
         'surname',
